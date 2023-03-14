@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qoutes</title>
+    <style>
+      body {
+        height: 1000px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-image: url(./jordan.jpeg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+ 
+      h1 {
+        text-align: center;
+        font-family: Impact;
+        padding: 20px;
+        color: white;
+      }
+      #container {
+        width: 100%;
+        height: 100px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+      }
+      #Quotes {
+        margin: 0 auto;
+        max-width: 800px; /* or adjust the value to your liking */
+        height: 50px;
+        text-align: center;
+        gap: 50px;
+        padding: 100px;
+        font-family: Impact;
+        color: black;
+        font-size: 20px;
+        background-color: white;
+        margin-top: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        height: 50px;
+        width: 60px;
+        text-align: center;
+        transition: 1s;
+        border: solid 2px black;
+        font-family: Impact;
+        margin-top: 95px;
+      
+      }
+      input:hover {
+        background-color:red;
+        color: white;
+        box-shadow: 12px 12px 2px 1px white;
+        height: 70px;
+        width: 80px;
+      }
+      /* at 325px this terms will be applied to Qoutes */
+      @media(max-width: 380px){
+        #Quotes{
+            font-size: 15px;
+           margin-top: 100px;
+        }
+      }
+      @media (max-width:308){
+        #Quotes{
+            font-size: 10px;
+            margin-top: 100px;
+        }
+      }
+      @media (max-width:653){
+        #Quotes{
+          
+            padding: 500px;
+
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <h1>Quote Generator</h1>
+    <br />
+    <div id="container">
+      <form name="QouteZone">
+        <input type="submit" />
+      </form>
+    </div>
+    <div id="Quotes"></div>
+    <br />
+  </body>
+  <script>
+    const formy = document.forms.QouteZone;
+    let display = document.getElementById("Quotes");
+    const quotes = [
+      "Believe you can and you're halfway there. -Theodore Roosevelt",
+      "Success is not final, failure is not fatal: It is the courage to continue that counts. -Winston Churchill",
+      "You miss 100% of the shots you don't take. -Wayne Gretzky",
+      "The only way to do great work is to love what you do. -Steve Jobs",
+      "I have not failed. I've just found 10,000 ways that won't work. -Thomas Edison",
+      "Don't watch the clock; do what it does. Keep going. -Sam Levenson",
+      "The future belongs to those who believe in the beauty of their dreams. -Eleanor Roosevelt",
+      "Success is walking from failure to failure with no loss of enthusiasm. -Winston Churchill",
+      "You don't have to be great to start, but you have to start to be great. -Zig Ziglar",
+      "The only limit to our realization of tomorrow will be our doubts of today. -Franklin D. Roosevelt",
+      "Don't let yesterday take up too much of today. -Will Rogers",
+      "You can't build a reputation on what you are going to do. -Henry Ford",
+      "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. -Christian D. Larson",
+      "I have learned over the years that when one's mind is made up, this diminishes fear. -Rosa Parks",
+      "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful. -Albert Schweitzer",
+      "The greatest glory in living lies not in never falling, but in rising every time we fall. -Nelson Mandela",
+      "If you want to live a happy life, tie it to a goal, not to people or things. -Albert Einstein",
+      "The best way to predict the future is to create it. -Peter Drucker",
+      "What you get by achieving your goals is not as important as what you become by achieving your goals. -Zig Ziglar",
+      "It does not matter how slowly you go as long as you do not stop. -Confucius",
+      "Life is 10% what happens to us and 90% how we react to it. -Charles R. Swindoll",
+      "The purpose of our lives is to be happy. -Dalai Lama",
+      "In three words I can sum up everything I've learned about life: it goes on. -Robert Frost",
+      "The biggest adventure you can ever take is to live the life of your dreams. -Oprah Winfrey",
+      "Life is what we make it, always has been, always will be. -Grandma Moses",
+      "Life is a journey, and if you fall in love with the journey, you will be in love forever. -Peter Hagerty",
+      "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. -Steve Jobs",
+      "Life is a gift, and it offers us the privilege, opportunity, and responsibility to give something back by becoming more. -Tony Robbins",
+      "Life is short, and it is up to you to make it sweet. -Sarah Louise Delany",
+      "Life is like riding a bicycle. To keep your balance, you must keep moving. -Albert Einstein",
+      "Life is a progress, and not a station. -Ralph Waldo Emerson",
+      "Don't count the days, make the days count. -Muhammad Ali",
+      "Life is a series of natural and spontaneous changes. Don't resist them; that only creates sorrow. Let reality be reality. Let things flow naturally forward in whatever way they like. -Lao Tzu",
+      "The only true wisdom is in knowing you know nothing. -Socrates",
+      "We make a living by what we get, but we make a life by what we give. -Winston Churchill",
+      "Life is a book and there are a thousand pages I have not yet read. -Cassandra Clare",
+      "The only thing necessary for the triumph of evil is for good men to do nothing. -Edmund Burke",
+      "If you want to live a happy life, tie it to a goal, not to people or things. -Albert Einstein",
+      "Life is really simple, but we insist on making it complicated. -Confucius",
+      "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate, to have it make some difference that you have lived and lived well. -Ralph Waldo Emerson",
+      "The difference between the impossible and the possible lies in a man's determination. -Tommy Lasorda",
+      "Just play. Have fun. Enjoy the game. -Michael Jordan",
+      "You miss 100% of the shots you don't take. -Wayne Gretzky",
+      "It's not whether you get knocked down, it's whether you get up. -Vince Lombardi",
+      "The will to win is important, but the will to prepare is vital. -Joe Paterno",
+      "Hard work beats talent when talent doesn't work hard. -Tim Notke",
+      "The only way to prove that you're a good sport is to lose. -Ernie Banks",
+      "You can't put a limit on anything. The more you dream, the farther you get. -Michael Phelps",
+      "I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed. -Michael Jordan",
+      "Champions keep playing until they get it right. -Billie Jean King",
+      "The more difficult the victory, the greater the happiness in winning. -Pele",
+      "Talent wins games, but teamwork and intelligence wins championships. -Michael Jordan",
+      "When you're riding, only the race in which you're riding is important. -Bill Shoemaker",
+      "The difference between the possible and the impossible is a person's determination. -Tommy Lasorda",
+      "The more I practice, the luckier I get. -Gary Player",
+      "I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.' -Muhammad Ali",
+      "The pain of discipline is nothing like the pain of disappointment. -Justin Langer",
+      "There may be people that have more talent than you, but there's no excuse for anyone to work harder than you do. -Derek Jeter",
+      "Gold medals aren't really made of gold. They're made of sweat, determination, and a hard-to-find alloy called guts. -Dan Gable",
+      "You don't win once in a while, you don't do things right once in a while, you do them right all the time. Winning is habit. Unfortunately, so is losing. -Vince Lombardi",
+    ];
+    console.log("hello");
+    //Anomouse function that dosent need to be named
+
+    formy.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let quote = " ";
+      const random = Math.floor(Math.random() * 51);
+      console.log(random);
+      quote += quotes[random];
+
+      display.innerHTML = quote;
+    });
+  </script>
+</html>
